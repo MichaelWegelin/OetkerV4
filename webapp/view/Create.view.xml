@@ -1,0 +1,59 @@
+<mvc:View controllerName="com.oetker.demo.controller.Create" xmlns="sap.m" xmlns:mvc="sap.ui.core.mvc"
+	xmlns:footerbar="sap.ushell.ui.footerbar" xmlns:f="sap.ui.layout.form" xmlns:core="sap.ui.core" xmlns:l="sap.ui.layout">
+	<Page id="page" navButtonPress="onNavBack" showNavButton="{device>/system/phone}" title="{viewModel>/title}">
+		<content>
+			<Input id="inputCountry" value="{newPartner>/Country}" visible="false"></Input>
+			<f:SimpleForm>
+				<Label visible="{viewModel>/BpIdVisible}" text="Business Partner Id"></Label>
+				<Text  visible="{viewModel>/BpIdVisible}" text="{newPartner>/BpId}"></Text>
+				<Label text="Company Name"></Label>
+				<Input id="inputCompany" 
+				    placeholder="Enter a company name"
+					value="{path: 'newPartner>/CompanyName', type: 'sap.ui.model.type.String', constraints: {minLength: 1, maxLength:10}}" 
+					valueStateText="At least 1 character, at most 10 characters"></Input>
+				<Label text="Business Partner Role"></Label>
+				<Input value="{newPartner>/BpRole}"></Input>
+				<Label text="Legal Form"></Label>
+				<Input value="{newPartner>/LegalForm}"></Input>
+				<Label text="Currency Code"></Label>
+				<Input value="{newPartner>/CurrencyCode}"></Input>
+				<Label text="Street"></Label>
+				<Input value="{newPartner>/Street}"></Input>
+				<Label text="Building"></Label>
+				<Input value="{newPartner>/Building}"></Input>
+				<Label text="City"></Label>
+				<Input value="{newPartner>/City}"></Input>
+				<Label text="PostalCode"></Label>
+				<Input value="{newPartner>/PostalCode}"></Input>
+				<Label text="Country"></Label>
+				<ComboBox
+				  id="cbCountry"
+				  selectedKey="{newPartner>/Country}"
+				  items="{countries>/countries}">
+					<core:Item key="{countries>code}" text="{countries>name}"></core:Item>
+				</ComboBox>
+				<Label text="Email Address"></Label>
+				<Input value="{newPartner>/EmailAddress}"></Input>
+				<Label text="Phone Number"></Label>
+				<Input value="{newPartner>/PhoneNumber}"></Input>
+				<Label text="Fax Number"></Label>
+				<Input value="{newPartner>/FaxNumber}"></Input>
+				<Label text="Web Address"></Label>
+				<Input value="{newPartner>/WebAddress}"></Input>
+				<Label text="Address Type"></Label>
+				<Input value="{newPartner>/AddressType}"></Input>
+				<Label text="Address Validity Start Date"></Label>
+				<DatePicker value="{path: 'newPartner>/AddressValStartDate', type: 'sap.ui.model.type.Date'}"></DatePicker>
+				<Label text="Address Validity End Date"></Label>
+				<DatePicker value="{path: 'newPartner>/AddressValEndDate', type: 'sap.ui.model.type.Date'}"></DatePicker>
+			</f:SimpleForm>
+		</content>
+		<footer>
+			<OverflowToolbar id="footerToolbar">
+				<ToolbarSpacer/>
+				<Button text="Save" type="Accept" press="onSave"></Button>
+				<Button text="Cancel" type="Reject" press="onCancel"></Button>
+			</OverflowToolbar>
+		</footer>
+	</Page>
+</mvc:View>
