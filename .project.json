@@ -10,5 +10,9 @@
     "services": {
       "js": "jsValidator"
     }
+  },
+  "deploy": {
+    "destination": "DrOetker",
+    "name": "ZMWE_DEMO"
   }
 }
